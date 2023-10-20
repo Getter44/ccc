@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     //settings
-    private final static String inputPath = "src/input/u1.txt";
-    private final static String outputPath = "src/output/output1.txt";
+    private final static String inputPath = "src/input/";
+    private final static String outputPath = "src/output/";
     private final static boolean isDebug = false;
 
     //DO NOT CHANGE METHOD
@@ -22,21 +22,24 @@ public class Main {
         //read lines from input
         //and write to file using: writer.write(result + "\n");
         int n = reader.nextInt();
+        reader.nextLine();
         String input;
         char[][] Arr = new char[n][n];
 
         for (int i = 0; i < n; i++) {
             input = reader.nextLine();
+            System.out.println(input);
             for (int j = 0; j < n; j++) {
                 Arr[i][j] = input.charAt(j);
             }
         }
 
         int o = reader.nextInt();
+        reader.nextLine();
+        String s;
         for (int i = 0; i < o; i++) {
-            int x = reader.nextInt();
-            int y = reader.nextInt();
-            writer.write(Arr[x][y] + "\n");
+            s = reader.nextLine();
+            writer.write(Arr[Integer.parseInt(s.substring(0, s.indexOf(',')))][Integer.parseInt(s.substring(s.indexOf(',')+1))] + "\n");
             }
         }
 
