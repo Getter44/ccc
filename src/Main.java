@@ -44,7 +44,6 @@ public class Main {
 
 
            String[] myArray = s.split(" ");
-            System.out.println("test");
 
             pfade(myArray);
 
