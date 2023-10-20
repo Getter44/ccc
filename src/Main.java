@@ -72,6 +72,15 @@ public class Main {
 
 
         public static boolean pfade(String[] myArray){
+        int y1, x1;
+
+            for(int i = 0; i <myArray.length; i++){
+                 y1 = Integer.parseInt(myArray[i].substring(0, myArray[i].indexOf(',')));
+                 x1 = Integer.parseInt(myArray[i].substring(myArray[i].indexOf(',') + 1));
+
+                System.out.println(x1 + " " + y1);
+            }
+
         return false;
         }
 
