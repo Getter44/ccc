@@ -1,6 +1,5 @@
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -29,6 +28,7 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             input = reader.nextLine();
+            System.out.println(input);
             for (int j = 0; j < n; j++) {
                 Arr[i][j] = input.charAt(j);
             }
@@ -50,10 +50,9 @@ public class Main {
             y2 = Integer.parseInt(s2.substring(0, s2.indexOf(',')));
             x2 = Integer.parseInt(s2.substring(s2.indexOf(',') + 1));
 
-            System.out.printf("1 Punkt: " + Arr[x1][y1]);
-            System.out.println(" | 2 Punkt: " + Arr[x2][y2]);
+            //System.out.println(x1 + " " + y1);
 
-            if (rec(x1, y1, x2, y2, copy(Arr))) {
+            if (rec(x1, y1, x2, y2, Arr.clone())) {
                 writer.write("SAME" + "\n");
             } else {
                 writer.write("DIFFERENT" + "\n");
@@ -64,45 +63,37 @@ public class Main {
     }
 
 
-    public static boolean rec(int x1, int y1, int x2, int y2, char[][] field) {
-        if (x1 == x2 && y1 == y2) {
-            return true;
-        } else if (field[x1][y1] == 'W' || field[x1][y1] == 'V'){
-            return false;
-        }
-        field[x1][y1] = 'V';
+        public static boolean rec(int x1, int y1, int x2, int y2, char[][] field){
+            System.out.println(x1 + "," + y1);
+            if (x1 == x2 && y1 == y2) {
+                System.out.println("success!");
+                return true;
+            } else if (x1 >= field.length || y1 >= field[0].length) {
+                return false;
+            } else if (field[x1][y1] == 'W') {
+                System.out.println("Ran into water");
+                return false;
+            }else if(field[x1][y1] == 'V'){
+                System.out.println("Ran into visited");
+                return false;
+            }else if (field[x1][y1] == 'L') {
+                System.out.println("one step");
+                field[x1][y1] = 'V';
 
-        return rec(x1 + 1, y1, x2, y2, field) ||
-                rec(x1 - 1, y1, x2, y2, field) ||
-                rec(x1, y1 + 1, x2, y2, field) ||
-                rec(x1, y1 - 1, x2, y2, field);
-    }
-
-    public static char[][] copy(char[][] arr) {
-        if (arr == null) {
-            return null;
-        }
-
-        int rows = arr.length;
-        if (rows == 0) {
-            return new char[0][0];
-        }
-
-        int cols = arr[0].length;
-        char[][] copiedArray = new char[rows][cols];
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                copiedArray[i][j] = arr[i][j];
+                return rec(x1 + 1, y1, x2, y2, field.clone()) ||
+                        rec(x1 - 1, y1, x2, y2, field.clone()) ||
+                        rec(x1, y1 + 1, x2, y2, field.clone()) ||
+                        rec(x1, y1 - 1, x2, y2, field.clone());
+            }else {
+                return false;
             }
+
+
+
         }
 
-        return copiedArray;
+        //write result to file
+        //writer.write(result + "\n");
     }
-
-
-}
-
-
 
 
