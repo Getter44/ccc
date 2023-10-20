@@ -71,12 +71,38 @@ public class Main {
     }
 
 
-        public static boolean pfade(String[] myArray){
+    public static boolean checkDups(String[] myArray){
         int y1, x1;
+
+        for(int i = 0; i <myArray.length; i++){
+            y1 = Integer.parseInt(myArray[i].substring(0, myArray[i].indexOf(',')));
+            x1 = Integer.parseInt(myArray[i].substring(myArray[i].indexOf(',') + 1));
+
+            for(int j = i+1; j<myArray.length; j++){
+                if(y1 == Integer.parseInt(myArray[j].substring(0, myArray[j].indexOf(','))) &&
+                    x1 == Integer.parseInt(myArray[j].substring(myArray[j].indexOf(',') + 1))){
+                    return false;
+                }
+            }
+
+        }
+        return false;
+    }
+
+        public static boolean pfade(String[] myArray){
+            int x1, y1;
+            if(!checkDups(myArray)){
+                System.out.println("Dupes vorhanden");
+                return false;
+            }
+
+
 
             for(int i = 0; i <myArray.length; i++){
                  y1 = Integer.parseInt(myArray[i].substring(0, myArray[i].indexOf(',')));
                  x1 = Integer.parseInt(myArray[i].substring(myArray[i].indexOf(',') + 1));
+
+                //if(myArray[i].substring((4)).contains())
 
                 System.out.println(x1 + " " + y1);
             }
