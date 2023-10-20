@@ -1,5 +1,6 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -69,12 +70,10 @@ public class Main {
             }*/
         }
     }
-
-
-    public static boolean checkDups(String[] myArray){
+    public static boolean checkDups (String[]myArray){
         int y1, x1;
 
-        for(int i = 0; i <myArray.length; i++){
+        for (int i = 0; i < myArray.length; i++) {
             y1 = Integer.parseInt(myArray[i].substring(0, myArray[i].indexOf(',')));
             x1 = Integer.parseInt(myArray[i].substring(myArray[i].indexOf(',') + 1));
 
@@ -97,21 +96,42 @@ public class Main {
                 return false;
             }
 
+            ArrayList<double[]> diagonal = new ArrayList<>();
+
+            int[][] arr = new int[myArray.length][2];
+
+                if (!checkDups(myArray)) {
+                    System.out.println("Dupes vorhanden");
+                    return false;
+                }
 
 
-            for(int i = 0; i <myArray.length; i++){
-                 y1 = Integer.parseInt(myArray[i].substring(0, myArray[i].indexOf(',')));
-                 x1 = Integer.parseInt(myArray[i].substring(myArray[i].indexOf(',') + 1));
+                for (int i = 0; i < myArray.length; i++) {
+                    y1 = Integer.parseInt(myArray[i].substring(0, myArray[i].indexOf(',')));
+                    x1 = Integer.parseInt(myArray[i].substring(myArray[i].indexOf(',') + 1));
 
-                //if(myArray[i].substring((4)).contains())
+                    //if(myArray[i].substring((4)).contains())
 
-                System.out.println(x1 + " " + y1);
+                    System.out.println(x1 + " " + y1);
+                    arr[i][0] = x1;
+                    arr[i][1] = y1;
+                }
+                System.out.println(Arrays.deepToString(arr));
+
+                for (int i = 0; i < myArray.length - 1; i++) {
+                    if (Math.abs(arr[i][0] - arr[i + 1][0]) + Math.abs(arr[i][0] - arr[i + 1][0]) > 1) { //gehst du gerade diagonaL?
+                        double[] temp = new double[2];
+                        temp[0] = arr[i][0] + arr[i+1][0] / 2.0;
+                        temp[1] = arr[i][1] + arr[i+1][1] / 2.0;
+                        diagonal.add(temp);
+                    }
+                }
+                diagonal.toArray();
+
+                return false;
             }
 
-        return false;
-        }
-
-        public static boolean rec(int x1, int y1, int x2, int y2, char[][] field){
+       /* public static boolean rec(int x1, int y1, int x2, int y2, char[][] field){
             //System.out.println(x1 + "," + y1);
             if (x1 == x2 && y1 == y2) {
                 //System.out.println("success!");
@@ -138,7 +158,8 @@ public class Main {
 
 
 
-        }
+        }*/
+
 
         //write result to file
         //writer.write(result + "\n");
