@@ -22,26 +22,26 @@ public class Main {
         //read lines from input
         //and write to file using: writer.write(result + "\n");
         int n = reader.nextInt();
-        String input = reader.nextLine();
+        String input;
         char[][] Arr = new char[n][n];
 
         for (int i = 0; i < n; i++) {
+            input = reader.nextLine();
             for (int j = 0; j < n; j++) {
-
+                Arr[i][j] = input.charAt(j);
             }
         }
 
-
+        int o = reader.nextInt();
+        for (int i = 0; i < o; i++) {
+            int x = reader.nextInt();
+            int y = reader.nextInt();
+            writer.write(Arr[x][y] + "\n");
+            }
         }
-        reader.nextLine(); //skip linebreak
 
-        int result = 0;
-        for(int i = 0;i < n;i++) {
-            String line = reader.nextLine();
-            result = line.length();
-
-            //write result to file
-            writer.write(result + "\n");
-        }
+        //write result to file
+        //writer.write(result + "\n");
     }
-}
+
+
