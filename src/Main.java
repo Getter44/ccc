@@ -92,8 +92,6 @@ public class Main {
 
         }
 
-        //write result to file
-        //writer.write(result + "\n");
     }
 
 
