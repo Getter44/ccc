@@ -52,7 +52,7 @@ public class Main {
 
             //System.out.println(x1 + " " + y1);
 
-            if (rec(x1, y1, x2, y2, Arr)) {
+            if (rec(x1, y1, x2, y2, Arr.clone())) {
                 writer.write("SAME" + "\n");
             } else {
                 writer.write("DIFFERENT" + "\n");
@@ -70,12 +70,19 @@ public class Main {
                 return false;
             } else if (field[x1][y1] == 'W') {
                 return false;
+            }else if(field[x1][y1] == 'V'){
+                return false;
+            } else if (field[x1][y1] == 'L') {
+                field[x1][y1] = 'V';
+
+                return rec(x1 + 1, y1, x2, y2, field.clone()) ||
+                        rec(x1 - 1, y1, x2, y2, field.clone()) ||
+                        rec(x1, y1 + 1, x2, y2, field.clone()) ||
+                        rec(x1, y1 - 1, x2, y2, field.clone());
+            }else {
+                return false;
             }
 
-            return rec(x1 + 1, y1, x2, y2, field) ||
-                    rec(x1 - 1, y1, x2, y2, field) ||
-                    rec(x1, y1 + 1, x2, y2, field) ||
-                    rec(x1, y1 - 1, x2, y2, field);
 
 
         }
