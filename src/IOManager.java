@@ -69,6 +69,7 @@ public class IOManager {
 
             //write to file in solve method
             try {
+                System.out.println("neues file");
                 Main.solve(reader, writer);
             } catch (IOException e) {
                 e.printStackTrace();
