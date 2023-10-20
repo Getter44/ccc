@@ -44,7 +44,7 @@ public class Main {
 
 
            String[] myArray = s.split(" ");
-
+            System.out.println(i);
             pfade(myArray);
 
            // String s1 = s.substring(0, s.indexOf(' '));
@@ -81,7 +81,8 @@ public class Main {
             for(int j = i+1; j<myArray.length; j++){
                 if(y1 == Integer.parseInt(myArray[j].substring(0, myArray[j].indexOf(','))) &&
                     x1 == Integer.parseInt(myArray[j].substring(myArray[j].indexOf(',') + 1))){
-                    return false;
+                    System.out.println("DUpe gefunden: " + y1 +" " + x1);
+                    return true;
                 }
             }
 
@@ -91,7 +92,7 @@ public class Main {
 
         public static boolean pfade(String[] myArray){
             int x1, y1;
-            if(!checkDups(myArray)){
+            if(checkDups(myArray)){
                 System.out.println("Dupes vorhanden");
                 return false;
             }
