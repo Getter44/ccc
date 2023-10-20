@@ -53,9 +53,9 @@ public class Main {
             //System.out.println(x1 + " " + y1);
 
             if (rec(x1, y1, x2, y2, Arr)) {
-                writer.write("SAME");
+                writer.write("SAME" + "\n");
             } else {
-                writer.write("DIFFERENT");
+                writer.write("DIFFERENT" + "\n");
 
 //            writer.write(Arr[Integer.parseInt(s.substring(s.indexOf(',')+1))][Integer.parseInt(s.substring(0, s.indexOf(',')))] + "\n");
             }
