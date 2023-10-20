@@ -1,5 +1,6 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -42,42 +43,54 @@ public class Main {
             s = reader.nextLine();
 
 
-            String s1 = s.substring(0, s.indexOf(' '));
-            String s2 = s.substring(s.indexOf(' ') + 1);
-            y1 = Integer.parseInt(s1.substring(0, s1.indexOf(',')));
+           String[] myArray = s.split(" ");
+            System.out.println("test");
+
+            pfade(myArray);
+
+           // String s1 = s.substring(0, s.indexOf(' '));
+            //String s2 = s.substring(s.indexOf(' ') + 1);
+            /*y1 = Integer.parseInt(s1.substring(0, s1.indexOf(',')));
             x1 = Integer.parseInt(s1.substring(s1.indexOf(',') + 1));
 
             y2 = Integer.parseInt(s2.substring(0, s2.indexOf(',')));
             x2 = Integer.parseInt(s2.substring(s2.indexOf(',') + 1));
 
+            System.out.println(Arr[x1][y1] +""+ x1 + "," + y1);
+            System.out.println(Arr[x2][y2] +""+ x2 + "," + y2);
             //System.out.println(x1 + " " + y1);
 
-            if (rec(x1, y1, x2, y2, Arr.clone())) {
+
+            if (rec(x1, y1, x2, y2, Arr)) {
                 writer.write("SAME" + "\n");
             } else {
                 writer.write("DIFFERENT" + "\n");
 
 //            writer.write(Arr[Integer.parseInt(s.substring(s.indexOf(',')+1))][Integer.parseInt(s.substring(0, s.indexOf(',')))] + "\n");
-            }
+            }*/
         }
     }
 
 
+        public static boolean pfade(String[] myArray){
+        return false;
+        }
+
         public static boolean rec(int x1, int y1, int x2, int y2, char[][] field){
-            System.out.println(x1 + "," + y1);
+            //System.out.println(x1 + "," + y1);
             if (x1 == x2 && y1 == y2) {
-                System.out.println("success!");
+                //System.out.println("success!");
                 return true;
             } else if (x1 >= field.length || y1 >= field[0].length) {
                 return false;
             } else if (field[x1][y1] == 'W') {
-                System.out.println("Ran into water");
+                //System.out.println("Ran into water");
                 return false;
             }else if(field[x1][y1] == 'V'){
-                System.out.println("Ran into visited");
+                //System.out.println("Ran into visited");
                 return false;
             }else if (field[x1][y1] == 'L') {
-                System.out.println("one step");
+                //System.out.println("one step");
                 field[x1][y1] = 'V';
 
                 return rec(x1 + 1, y1, x2, y2, field.clone()) ||
@@ -92,6 +105,8 @@ public class Main {
 
         }
 
+        //write result to file
+        //writer.write(result + "\n");
     }
 
 
