@@ -80,7 +80,7 @@ public class Main {
             for(int j = i+1; j<myArray.length; j++){
                 if(y1 == Integer.parseInt(myArray[j].substring(0, myArray[j].indexOf(','))) &&
                     x1 == Integer.parseInt(myArray[j].substring(myArray[j].indexOf(',') + 1))){
-                    System.out.println("DUpe gefunden: " + y1 +" " + x1);
+                    System.out.println("Dupe gefunden: " + y1 +" " + x1);
                     return true;
                 }
             }
@@ -99,11 +99,6 @@ public class Main {
             ArrayList<double[]> diagonal = new ArrayList<>();
 
             int[][] arr = new int[myArray.length][2];
-
-                if (!checkDups(myArray)) {
-                    System.out.println("Dupes vorhanden");
-                    return false;
-                }
 
 
                 for (int i = 0; i < myArray.length; i++) {
