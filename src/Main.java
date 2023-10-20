@@ -72,7 +72,7 @@ public class Main {
 
 
         public static boolean pfade(String[] myArray){
-        return false;
+            return false;
         }
 
         public static boolean rec(int x1, int y1, int x2, int y2, char[][] field){
