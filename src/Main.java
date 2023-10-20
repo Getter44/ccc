@@ -66,6 +66,8 @@ public class Main {
         public static boolean rec(int x1, int y1, int x2, int y2, char[][] field){
             if (x1 == x2 && y1 == y2) {
                 return true;
+            } else if (x1 >= field.length || y1 >= field[0].length) {
+                return false;
             } else if (field[x1][y1] == 'W') {
                 return false;
             }
