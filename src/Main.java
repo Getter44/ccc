@@ -22,7 +22,6 @@ public class Main {
         //read lines from input
         //and write to file using: writer.write(result + "\n");
         int n = reader.nextInt();
-        reader.nextLine();
         String input;
         char[][] Arr = new char[n][n];
 
