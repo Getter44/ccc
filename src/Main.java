@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     //settings
-    private final static String inputPath = "src/example/";
+    private final static String inputPath = "src/input/u1.txt";
     private final static String outputPath = "src/output/";
     private final static boolean isDebug = false;
 
