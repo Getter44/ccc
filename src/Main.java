@@ -24,6 +24,7 @@ public class Main {
         int n = reader.nextInt();
         String input;
         char[][] Arr = new char[n][n];
+        reader.nextLine();
 
         for (int i = 0; i < n; i++) {
             input = reader.nextLine();
@@ -36,9 +37,20 @@ public class Main {
         int o = reader.nextInt();
         reader.nextLine();
         String s;
+        int x1, x2, y1, y2;
         for (int i = 0; i < o; i++) {
             s = reader.nextLine();
-            writer.write(Arr[Integer.parseInt(s.substring(0, s.indexOf(',')))][Integer.parseInt(s.substring(s.indexOf(',')+1))] + "\n");
+            String s1 = s.substring(0, s.indexOf(' '));
+            String s2 = s.substring(s.indexOf(' ')+1);
+            x1 = Integer.parseInt(s1.substring(0, s1.indexOf(',')));
+            y1 = Integer.parseInt(s1.substring(s1.indexOf(',')+1));
+
+            x2 = Integer.parseInt(s2.substring(0, s2.indexOf(',')));
+            y2 = Integer.parseInt(s2.substring(s2.indexOf(',')+1));
+
+            System.out.println(x1 + " " + y1);
+
+//            writer.write(Arr[Integer.parseInt(s.substring(s.indexOf(',')+1))][Integer.parseInt(s.substring(0, s.indexOf(',')))] + "\n");
             }
         }
 
